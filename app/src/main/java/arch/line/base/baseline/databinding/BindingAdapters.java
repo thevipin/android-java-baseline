@@ -2,6 +2,7 @@ package arch.line.base.baseline.databinding;
 
 import android.widget.ImageView;
 import android.databinding.BindingAdapter;
+import android.widget.TextView;
 
 
 /**
@@ -23,5 +24,10 @@ public class BindingAdapters {
         } else {
             *//*imageView.setImageResource(R.drawable.image_empty)*//*
         }*/
+    }
+    @BindingAdapter("reverseText")
+    public static void showTextInReverse(TextView textView,String text){
+        StringBuilder stringBuilder = new StringBuilder(text);
+        textView.setText(stringBuilder.reverse().toString());
     }
 }
