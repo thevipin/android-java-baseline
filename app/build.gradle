@@ -37,7 +37,7 @@ android {
              * Ref https://developer.android.com/studio/build/manifest-build-variables
              */
             manifestPlaceholders = [hostName: "internal.example.com"]
-            applicationIdSuffix ".debugStaging"
+            //applicationIdSuffix ".debugStaging"
             /**
              * inject String constant to program
              * Api URL, Keys and other Constants which change over build are write here
@@ -48,14 +48,14 @@ android {
         staging {
             initWith debug
             manifestPlaceholders = [hostName: "internal.example.com"]
-            applicationIdSuffix ".debugStaging"
+           // applicationIdSuffix ".debugStaging"
             buildConfigField "String", "BASE_API_URL", '"https://api.perfomatix.com/api"'
         }
 
         develop {
             initWith debug
             manifestPlaceholders = [hostName: "internal.example.com"]
-            applicationIdSuffix ".debugDevelop"
+            //applicationIdSuffix ".debugDevelop"
             buildConfigField "String", "BASE_API_URL", '"https://api.perfomatix.com/api"'
         }
     }

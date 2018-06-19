@@ -25,7 +25,7 @@ public class BindingAdapters {
             *//*imageView.setImageResource(R.drawable.image_empty)*//*
         }*/
     }
-    @BindingAdapter("reverseText")
+    @BindingAdapter("reversetext")
     public static void showTextInReverse(TextView textView,String text){
         StringBuilder stringBuilder = new StringBuilder(text);
         textView.setText(stringBuilder.reverse().toString());

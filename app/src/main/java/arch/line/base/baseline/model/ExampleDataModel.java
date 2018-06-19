@@ -3,20 +3,19 @@ package arch.line.base.baseline.model;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
-import org.jetbrains.annotations.NotNull;
 
 @Entity
 public class ExampleDataModel extends BaseModel {
-    @PrimaryKey @NotNull
+    @PrimaryKey @NonNull
     public String Id = "0";
 
-    @NotNull
     public String getId() {
         return Id;
     }
 
-    public void setId(@NotNull String id) {
+    public void setId( String id) {
         Id = id;
     }
 
