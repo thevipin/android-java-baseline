@@ -6,18 +6,7 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18bd02f9-41ef-49ff-b6ce-a81e07f15237" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_example_observable_data_objects.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/arch/line/base/baseline/databinding/BindingAdapters.java" afterPath="$PROJECT_DIR$/app/src/main/java/arch/line/base/baseline/databinding/BindingAdapters.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/arch/line/base/baseline/model/ExampleDataModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/arch/line/base/baseline/model/ExampleDataModel.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/arch/line/base/baseline/view/example/databindingexample/ExampleActivityExpressionsBinding.java" afterPath="$PROJECT_DIR$/app/src/main/java/arch/line/base/baseline/view/example/databindingexample/ExampleActivityExpressionsBinding.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_example_expression_binding.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_example_expression_binding.xml" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-    </list>
+    <list default="true" id="18bd02f9-41ef-49ff-b6ce-a81e07f15237" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
