@@ -15,7 +15,7 @@ public class DatabaseModule {
     @Singleton
     @Provides
     public AppDataBase provideAppDatabase(Context context){
-        return AppDataBase.getAppAppDataBaseInstant(context);
+        return AppDataBase.getAppDataBaseInstant(context);
     }
 
     @Singleton
