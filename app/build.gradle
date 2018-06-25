@@ -4,6 +4,10 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+/**
+ref https://developer.android.com/jetpack/docs/guide
+*/
+
 android {
     dataBinding {
         enabled = true
@@ -42,7 +46,7 @@ android {
              * inject String constant to program
              * Api URL, Keys and other Constants which change over build are write here
              */
-            buildConfigField "String", "BASE_API_URL", '"https://api.perfomatix.com/api"'
+            buildConfigField "String", "BASE_API_URL", '"http://www.omdbapi.com/"'
         }
 
         staging {
@@ -80,6 +84,7 @@ dependencies {
     def retrofit_version = "2.4.0"
     def httpretrofit_version = "3.9.0"
     def extretrofit_version = "2.3.0"
+    def rxui_version = "2.1.1"
 
     //DataBinding
     //implementation "com.android.databinding:compiler:$databinding_version"
@@ -100,6 +105,12 @@ dependencies {
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
     // optional - RxJava support for Room
     implementation "android.arch.persistence.room:rxjava2:$room_version"
+
+    //RxJava binding APIs for Android UI widgets from the platform and support libraries.
+    implementation "com.jakewharton.rxbinding2:rxbinding:$rxui_version"
+    implementation "com.jakewharton.rxbinding2:rxbinding-support-v4:$rxui_version"
+    implementation "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:$rxui_version"
+
     // Test helpers
     testImplementation "android.arch.persistence.room:testing:$room_version"
 
