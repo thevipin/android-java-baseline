@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import javax.inject.Singleton;
 
 import arch.line.base.baseline.repository.api.AppRestApi;
+import arch.line.base.baseline.repository.api.ImdbApi;
 import arch.line.base.baseline.utility.api.HeaderInterceptor;
 import dagger.Module;
 import dagger.Provides;
@@ -39,5 +40,10 @@ public class RestModule {
         return AppRestApi.getHttpLoggingInterceptor();
     }
 
+    @Provides
+    @Singleton
+    public ImdbApi provideImdbApi(Retrofit retrofit){
+        return retrofit.create(ImdbApi.class);
+    }
 
 }

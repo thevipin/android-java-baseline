@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".view.example.databindingexample.ExampleActivityExpressionsBinding">
+
+        </activity>
+        <activity android:name=".view.example.apicallexample.SimpleApiCallActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
