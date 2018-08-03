@@ -80,14 +80,19 @@ dependencies {
     def dagger_version = "2.11"
     def room_version = "1.1.1"
     def gson_version = "2.8.0"
-    def paging_version = "1.0.0"
+    def paging_version = "1.0.1"
     def retrofit_version = "2.4.0"
     def httpretrofit_version = "3.9.0"
     def extretrofit_version = "2.3.0"
     def rxui_version = "2.1.1"
+    def lifecycle_version = "1.1.1"
 
     //DataBinding
     //implementation "com.android.databinding:compiler:$databinding_version"
+
+    //View and lifecycle
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    implementation "android.arch.lifecycle:viewmodel:$lifecycle_version"
 
     //recycler-view library
     implementation "com.android.support:recyclerview-v7:$appcompat_version"

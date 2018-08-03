@@ -1,7 +1,6 @@
 package arch.line.base.baseline.view.example.apicallexample;
 
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -13,11 +12,23 @@ public class SimpleApiCallActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        simpleApiCallViewModel = ViewModelProviders.of(this).get(MyViewModel.class);
+        simpleApiCallViewModel = ViewModelProviders.of(this).get(SimpleApiCallViewModel.class);
+
 
     }
 
     private void loadData(){
-
+        simpleApiCallViewModel.getMovie("","").observe(this, exampleDataModelResource -> {
+            switch (exampleDataModelResource.status)
+            {
+                case LOADING: //show loading
+                    //exampleDataModelResource.data
+                    break;
+                case SUCCESS: // display value
+                    break;
+                case ERROR: //error
+                    break;
+            }
+        });
     }
 }
