@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import arch.line.base.baseline.repository.ImdbRespository;
 import arch.line.base.baseline.view.BaseActivity;
 import arch.line.base.baseline.viewmodel.example.SimpleApiCallViewModel;
 
@@ -18,7 +19,7 @@ public class SimpleApiCallActivity extends BaseActivity {
     }
 
     private void loadData(){
-        simpleApiCallViewModel.getMovie("","").observe(this, exampleDataModelResource -> {
+        /*simpleApiCallViewModel.("","").observe(this, exampleDataModelResource -> {
             switch (exampleDataModelResource.status)
             {
                 case LOADING: //show loading
@@ -29,6 +30,8 @@ public class SimpleApiCallActivity extends BaseActivity {
                 case ERROR: //error
                     break;
             }
-        });
+        });*/
+        ImdbRespository imdbRespository = new ImdbRespository();
+        imdbRespository.loadData()
     }
 }

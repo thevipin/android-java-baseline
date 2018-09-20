@@ -1,7 +1,23 @@
+/*
+ * Copyright (C) 2017 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package arch.line.base.baseline.utility.api;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.util.ArrayMap;
+import android.util.ArrayMap;
+
 
 import java.io.IOException;
 import java.util.Collections;
@@ -11,9 +27,9 @@ import java.util.regex.Pattern;
 
 import retrofit2.Response;
 
+
 /**
  * Common class used by API responses.
- *
  * @param <T>
  */
 public class ApiResponse<T> {
@@ -29,16 +45,16 @@ public class ApiResponse<T> {
     @NonNull
     public final Map<String, String> links;
 
-    public ApiResponse(Throwable error) {
+    public  ApiResponse(Throwable error) {
         code = 500;
         body = null;
         errorMessage = error.getMessage();
         links = Collections.emptyMap();
     }
 
-    public ApiResponse(Response<T> response) {
+    public  ApiResponse(Response<T> response) {
         code = response.code();
-        if (response.isSuccessful()) {
+        if(response.isSuccessful()) {
             body = response.body();
             errorMessage = null;
         } else {
@@ -47,7 +63,7 @@ public class ApiResponse<T> {
                 try {
                     message = response.errorBody().string();
                 } catch (IOException ignored) {
-                    ignored.printStackTrace();
+
                 }
             }
             if (message == null || message.trim().length() == 0) {
@@ -72,11 +88,11 @@ public class ApiResponse<T> {
         }
     }
 
-    public boolean isSuccessful() {
+    public  boolean isSuccessful() {
         return code >= 200 && code < 300;
     }
 
-    public Integer getNextPage() {
+    public  Integer getNextPage() {
         String next = links.get(NEXT_LINK);
         if (next == null) {
             return null;
