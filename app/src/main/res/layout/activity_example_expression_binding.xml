@@ -24,7 +24,6 @@
         ref https://developer.android.com/reference/android/databinding/BindingAdapter-->
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:reversetext="@{exampleDataModel.Id}" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </layout>

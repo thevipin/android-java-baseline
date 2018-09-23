@@ -13,35 +13,35 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 
-@Singleton
+
 @Module
 public class RestModule {
-    @Provides
     @Singleton
+    @Provides
     public Retrofit provideRetrofit(OkHttpClient okHttpClient, Gson gson) {
         return AppRestApi.getAppRestApiInstant(okHttpClient, gson);
     }
 
-    @Provides
     @Singleton
+    @Provides
     public OkHttpClient provideOkHttpClient(HeaderInterceptor headerInterceptor, Interceptor loggingInterceptor) {
         return AppRestApi.getHttpClient(headerInterceptor, loggingInterceptor);
     }
 
-    @Provides
     @Singleton
+    @Provides
     public HeaderInterceptor provideHeaderInterceptor() {
         return HeaderInterceptor.createHeaderInterceptor();
     }
 
-    @Provides
     @Singleton
+    @Provides
     public Interceptor provideLoggingInterceptor() {
         return AppRestApi.getHttpLoggingInterceptor();
     }
 
-    @Provides
     @Singleton
+    @Provides
     public ImdbApi provideImdbApi(Retrofit retrofit){
         return retrofit.create(ImdbApi.class);
     }
