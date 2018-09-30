@@ -2,7 +2,8 @@ package arch.line.base.baseline;
 
 import android.app.Application;
 
-import arch.line.base.baseline.injection.DaggerAppComponent;
+import arch.line.base.baseline.injection.AppComponent;
+//import arch.line.base.baseline.injection.DaggerAppComponent;
 
 
 public abstract class BaseApplication extends Application {
@@ -11,7 +12,7 @@ public abstract class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        mAppComponent = DaggerAppComponent.create();
+        //mAppComponent = DaggerAppComponent.create();
     }
 
     public AppComponent getAppComponent() {

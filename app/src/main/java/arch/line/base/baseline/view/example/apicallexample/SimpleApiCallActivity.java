@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import javax.inject.Inject;
 
+import arch.line.base.baseline.BaseApplication;
 import arch.line.base.baseline.R;
 import arch.line.base.baseline.databinding.ActivityExampleExpressionBindingBinding;
 import arch.line.base.baseline.model.ExampleDataModel;

@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import javax.inject.Inject;
 
 
-
+import arch.line.base.baseline.injection.AppComponent;
 import arch.line.base.baseline.model.ExampleDataModel;
 import arch.line.base.baseline.repository.api.ImdbApi;
 import arch.line.base.baseline.utility.api.ApiResponse;
