@@ -1,6 +1,7 @@
 package arch.line.base.baseline.injection;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import javax.inject.Singleton;
 
@@ -15,11 +16,18 @@ import retrofit2.Retrofit;
 
 
 @Module
+@Singleton
 public class RestModule {
     @Singleton
     @Provides
     public Retrofit provideRetrofit(OkHttpClient okHttpClient, Gson gson) {
         return AppRestApi.getAppRestApiInstant(okHttpClient, gson);
+    }
+
+    @Provides
+    @Singleton
+    Gson provideGson() {
+        return new GsonBuilder().setPrettyPrinting().create();
     }
 
     @Singleton
@@ -42,7 +50,7 @@ public class RestModule {
 
     @Singleton
     @Provides
-    public ImdbApi provideImdbApi(Retrofit retrofit){
+    public ImdbApi provideImdbApi(Retrofit retrofit) {
         return retrofit.create(ImdbApi.class);
     }
 

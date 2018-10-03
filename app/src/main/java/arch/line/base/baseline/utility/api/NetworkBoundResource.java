@@ -27,6 +27,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.WorkerThread;
 
+import java.util.Objects;
+
 /**
  * A generic class that can provide a resource backed by both the sqlite database and the network.
  * <p>
@@ -51,15 +53,22 @@ public abstract class NetworkBoundResource<ResultType, RequestType> {
             if (shouldFetch(data)) {
                 fetchFromNetwork(dbSource);
             } else {
-                result.addSource(dbSource, newData -> result.setValue(Resource.success(newData)));
+                result.addSource(dbSource, newData -> setValue(Resource.success(newData)));
             }
         });
+    }
+
+    @MainThread
+    private void setValue(Resource<ResultType> newValue) {
+        if (!Objects.equals(result.getValue(), newValue)) {
+            result.setValue(newValue);
+        }
     }
 
     private void fetchFromNetwork(final LiveData<ResultType> dbSource) {
         LiveData<ApiResponse<RequestType>> apiResponse = createCall();
         // we re-attach dbSource as a new source, it will dispatch its latest value quickly
-        result.addSource(dbSource, newData -> result.setValue(Resource.loading(newData)));
+        result.addSource(dbSource, newData -> setValue(Resource.loading(newData)));
         result.addSource(apiResponse, response -> {
             result.removeSource(apiResponse);
             result.removeSource(dbSource);
@@ -72,13 +81,19 @@ public abstract class NetworkBoundResource<ResultType, RequestType> {
                             // otherwise we will get immediately last cached value,
                             // which may not be updated with latest results received from network.
                             result.addSource(loadFromDb(),
-                                    newData -> result.setValue(Resource.success(newData)))
+                                    newData -> {
+                                        if (newData != null) {
+                                            setValue(Resource.success(newData));
+                                        }else {
+                                            setValue(Resource.error("empty data",newData));
+                                        }
+                                    })
                     );
                 });
             } else {
                 onFetchFailed();
                 result.addSource(dbSource,
-                        newData -> result.setValue(Resource.error(response.errorMessage, newData)));
+                        newData -> setValue(Resource.error(response.errorMessage, newData)));
             }
         });
     }

@@ -7,7 +7,7 @@ import arch.line.base.baseline.view.example.apicallexample.SimpleApiCallActivity
 import dagger.Component;
 
 @Singleton
-@Component(modules = RestModule.class)
+@Component(modules = {AppModule.class, RestModule.class, DatabaseModule.class})
 public interface AppComponent {
- public void inject(SimpleApiCallActivity activity);
+    public void inject(SimpleApiCallActivity simpleApiCallActivity);
 }

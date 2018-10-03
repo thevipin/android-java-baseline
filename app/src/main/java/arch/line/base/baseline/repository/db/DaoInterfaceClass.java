@@ -22,8 +22,8 @@ public class DaoInterfaceClass {
         @Query("SELECT * FROM ExampleDataModel")
         public LiveData<List<ExampleDataModel>> getSampleDataModel();
 
-        /*@Query("SELECT * FROM user WHERE age > :minAge")
-        public User[] loadAllUsersOlderThan(int minAge);*/
+        @Query("SELECT * FROM ExampleDataModel WHERE Id like :id")
+        public LiveData<ExampleDataModel> getSampleDataModel(String id);
 
     }
 }

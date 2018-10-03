@@ -20,11 +20,4 @@ abstract public class AppDataBase extends RoomDatabase {
 
     public abstract DaoInterfaceClass.ExampleModuleDao getExampleModuleDao();
 
-    public static AppDataBase getAppDataBaseInstant(Context context){
-        return Room.databaseBuilder(
-                context,
-                AppDataBase.class,
-                context.getString(R.string.app_name))
-                .build();
-    }
 }

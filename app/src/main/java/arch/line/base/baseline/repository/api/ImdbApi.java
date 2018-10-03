@@ -8,6 +8,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface ImdbApi {
-    @GET("")
+    @GET(".")
     public LiveData<ApiResponse<ExampleDataModel>> getUser(@Query("apikey") String apiKey, @Query("i") String id);
 }

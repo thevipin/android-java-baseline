@@ -8,16 +8,9 @@ import android.support.annotation.NonNull;
 
 @Entity
 public class ExampleDataModel extends BaseModel {
-    @PrimaryKey @NonNull
+    @PrimaryKey
+    @NonNull
     public String Id = "0";
-
-    public String getId() {
-        return Id;
-    }
-
-    public void setId( String id) {
-        Id = id;
-    }
 
     public String Title;
 
